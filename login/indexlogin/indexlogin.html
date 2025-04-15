@@ -1,0 +1,278 @@
+
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OfficeAprenda - Aprenda PowerPoint, Excel e Word</title>
+
+</head>
+
+<link rel="stylesheet" type="text/css" href="indexcss.css" media="screen" />
+
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <img src="arquivos/Logo_Tcc-removebg-preview.png" alt="Logo OfficeAprenda">
+                    <span>Office<span>Aprenda</span></span>
+                </div>
+                <button class="mobile-menu-btn">☰</button>
+                <ul class="nav-links">
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#cursos">Cursos</a></li>
+                    <li><a href="#recursos">Recursos</a></li>
+                    <li><a href="#perfil">Perfil</a></li>
+                    <li><a href="#suporte">Suporte</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                </ul>
+                <button class="btn btn-primary" id="btnEntrar">Login / Registro</button>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" id="inicio">
+        <div class="container">
+            <h1>Aprenda PowerPoint, Excel e Word</h1>
+            <p>Do básico ao avançado, com aulas passo a passo para iniciantes. Acompanhe seu progresso e obtenha certificados ao concluir os módulos!</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary">Começar Agora</button>
+                <button class="btn btn-secondary">Explorar Cursos</button>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="profile-preview" id="perfil">
+        <div class="container">
+            <div class="profile-container">
+                <div class="profile-info">
+                    <h2>Acompanhe Seu Progresso</h2>
+                    <p>Com seu perfil personalizado, você pode visualizar seu avanço em cada curso, verificar certificados conquistados e acompanhar suas métricas de aprendizado.</p>
+                    <p>Seu progresso atual:</p>
+                    
+                    <div class="progress-container">
+                        <div class="progress-bar powerpoint-progress" style="width: 40%">40%</div>
+                    </div>
+                    <p>PowerPoint Básico</p>
+                    
+                    <div class="progress-container">
+                        <div class="progress-bar excel-progress" style="width: 25%">25%</div>
+                    </div>
+                    <p>Excel Básico</p>
+                    
+                    <div class="progress-container">
+                        <div class="progress-bar word-progress" style="width: 60%">60%</div>
+                    </div>
+                    <p>Word Básico</p>
+                    
+                    <button class="btn btn-primary" onclick="window.location.href='perfil.html'">Ver Perfil</button>
+
+                </div>
+                <div class="profile-img">
+                    <img id="profile-image" src="https://img.freepik.com/premium-photo/rainy-cityscape-sunset-anime-girl-working-desk_889006-572.jpg" alt="Perfil do aluno" class="profile-mockup">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <section class="courses" id="cursos">
+        <div class="container">
+            <h2 class="section-title">Nossos Cursos</h2>
+            <div class="courses-grid">
+                <div class="course-card">
+                    <div class="course-header powerpoint-bg">
+                        PowerPoint
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Microsoft PowerPoint</h3>
+                        <p class="course-description">Aprenda a criar apresentações incríveis desde o básico até recursos avançados.</p>
+                        <ul class="level-list">
+                            <li>Básico: Criação e formatação de slides</li>
+                            <li>Intermediário: Animações e transições</li>
+                            <li>Avançado: Apresentações interativas</li>
+                        </ul>
+                        <button class="btn btn-primary">Ver Curso</button>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <div class="course-header excel-bg">
+                        Excel
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Microsoft Excel</h3>
+                        <p class="course-description">Domine planilhas, fórmulas e análise de dados para impulsionar sua produtividade.</p>
+                        <ul class="level-list">
+                            <li>Básico: Inserção e formatação de dados</li>
+                            <li>Intermediário: Fórmulas e tabelas dinâmicas</li>
+                            <li>Avançado: Macros e dashboards</li>
+                        </ul>
+                        <button class="btn btn-primary">Ver Curso</button>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <div class="course-header word-bg">
+                        Word
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Microsoft Word</h3>
+                        <p class="course-description">Crie documentos profissionais com formatação avançada e recursos colaborativos.</p>
+                        <ul class="level-list">
+                            <li>Básico: Edição e formatação de texto</li>
+                            <li>Intermediário: Estilos e seções</li>
+                            <li>Avançado: Referências e colaboração</li>
+                        </ul>
+                        <button class="btn btn-primary">Ver Curso</button>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <div class="course-header firststeps-bg">
+                        Primeiros Passos
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Informática básica</h3>
+                        <p class="course-description">Se ambiente com as prinicipais funções da informática!</p>
+                        <ul class="level-list">
+                            <li>Básico: Menus e funções básicas.</li>
+                            <li>Intermediário: Criação de Arquivos e pastas.</li>
+                            <li>Avançado: Navegação entre pastas,downloads entre outras ferramentas.</li>
+                        </ul>
+                        <button class="btn btn-primary">Ver Curso</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="recursos">
+        <div class="container">
+            <h2 class="section-title">Recursos Exclusivos</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3 class="feature-title">Acompanhamento de Progresso</h3>
+                    <p class="feature-description">Visualize seu avanço em cada curso com barras de progresso detalhadas e estatísticas personalizadas.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🏆</div>
+                    <h3 class="feature-title">Certificados Digitais</h3>
+                    <p class="feature-description">Obtenha certificados ao concluir cada nível dos cursos e compartilhe suas conquistas nas redes sociais.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🎮</div>
+                    <h3 class="feature-title">Gamificação</h3>
+                    <p class="feature-description">Ganhe pontos, medalhas e suba no ranking à medida que completa lições e desafios nos cursos.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">💬</div>
+                    <h3 class="feature-title">Suporte Interativo</h3>
+                    <p class="feature-description">Acesse nosso fórum e chat de suporte para tirar dúvidas e interagir com outros alunos.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3 class="feature-title">Acesso Multi-dispositivo</h3>
+                    <p class="feature-description">Estude em qualquer lugar com nosso site responsivo que se adapta a computadores, tablets e smartphones.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🎓</div>
+                    <h3 class="feature-title">Quizzes Interativos</h3>
+                    <p class="feature-description">Teste seus conhecimentos com quizzes interativos ao final de cada módulo para reforçar o aprendizado.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="profile-preview" id="perfil">
+        <div class="container">
+            <div class="profile-container">
+                <div class="profile-info">
+                    <h2>Acompanhe Seu Progresso</h2>
+                    <p>Com seu perfil personalizado, você pode visualizar seu avanço em cada curso, verificar certificados conquistados e acompanhar suas métricas de aprendizado.</p>
+                    <p>Seu progresso atual:</p>
+                    
+                    <div class="progress-container">
+                        <div class="progress-bar powerpoint-progress" style="width: 40%">40%</div>
+                    </div>
+                    <p>PowerPoint Básico</p>
+                    
+                    <div class="progress-container">
+                        <div class="progress-bar excel-progress" style="width: 25%">25%</div>
+                    </div>
+                    <p>Excel Básico</p>
+                    
+                    <div class="progress-container">
+                        <div class="progress-bar word-progress" style="width: 60%">60%</div>
+                    </div>
+                    <p>Word Básico</p>
+                    
+                    <button class="btn btn-primary">Ver Perfil Completo</button>
+                </div>
+                <div class="profile-img">
+                    <img src="https://img.freepik.com/premium-photo/rainy-cityscape-sunset-anime-girl-working-desk_889006-572.jpg" alt="Perfil do aluno" class="profile-mockup">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>Comece sua jornada hoje!</h2>
+            <p>Cadastre-se gratuitamente e tenha acesso a diversos conteúdos para aprender PowerPoint, Excel e Word do zero.</p>
+            <button class="btn cta-button">Criar Conta Gratuita</button>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>OfficeAprenda</h3>
+                    <p>Aprenda PowerPoint, Excel e Word de maneira fácil e gradual, desde o básico até o nível avançado.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Links Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="#inicio">Início</a></li>
+                        <li><a href="#cursos">Cursos</a></li>
+                        <li><a href="#recursos">Recursos</a></li>
+                        <li><a href="#perfil">Perfil</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Cursos</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">PowerPoint</a></li>
+                        <li><a href="#">Excel</a></li>
+                        <li><a href="#">Word</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Suporte</h3>
+                    <ul class="footer-links">
+                        <li><a href="#suporte">Central de Ajuda</a></li>
+                        <li><a href="#suporte">FAQ</a></li>
+                        <li><a href="#suporte">Contato</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 OfficeAprenda. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="inxperfil.js"></script>
+
+    
+
+</body>
+</html>

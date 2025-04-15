@@ -1,0 +1,81 @@
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Meu Site</title>
+
+    <!-- Script do Google para autenticação -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+    <!-- Link para o CSS -->
+    <link rel="stylesheet" type="text/css" href="stylelogin.css" media="screen" />
+
+    <!-- Script JS para ações do login (loginjs.js) -->
+    <script src="loginjs.js" defer></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Bem-vindo</h1>
+            <p>Entre com suas credenciais para acessar sua conta</p>
+        </div>
+        
+        <div class="form-container">
+            <form action="#" method="post">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="seu@email.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Senha</label>
+                    <input type="password" class="form-control" id="password" placeholder="•••••••••" required>
+                </div>
+                
+                <div class="remember-forgot">
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="remember">
+                        <label for="remember">Lembrar-me</label>
+                    </div>
+                    <a href="#" class="forgot-link">Esqueceu a senha?</a>
+                </div>
+                
+                <button type="submit" class="btn" id="btnEntrar">Entrar</button>
+            </form>
+
+    
+
+         
+            
+            <!-- Botão do Google Sign-In -->
+            <div id="g_id_onload"
+                 data-client_id="1055481571505-qtnm286daodl305g8huve72jfplnnslb.apps.googleusercontent.com"
+                 data-callback="onSignIn"
+                 data-auto_prompt="false">
+            </div>
+       
+            <div class="g_id_signin"
+                 data-type="standard"
+                 data-size="large"
+                 data-theme="outline"
+                 data-text="signin_with"
+                 data-shape="rectangular"
+                 data-logo_alignment="left">
+            </div>
+     
+
+        <div class="footer">
+            <p>Não tem uma conta? <a href="registro/registro.html">Registre-se</a></p>
+        </div>
+    </div>
+
+    <!-- Adicionar os scripts do Firebase -->
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+
+<script src="loginjs.js"></script>
+
+
+</body>
+</html>

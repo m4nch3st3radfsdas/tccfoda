@@ -1,242 +1,127 @@
 <!DOCTYPE html>
-<html lang="pt">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curso Interativo - Word</title>
-    
-    <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
-    
-</head>
-<body>
-    <header>
-        <h1>Curso de Word</h1>
+<html>
+    <head>
+        <title>Loading TyranoScript</title>
 
-        <a href="tyranoscript-master\tyranoscript-master\index.html" ><button class="btn btn-primary">Modo VN</button></a>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+        <meta name="robots" content="noindex,nofollow" />
 
-    </header>
-    
-    <main class="aula-container">
-        <h2 class="aula-titulo">Lição 1: Introdução ao Word</h2>
-        
+        <link href="./tyrano/tyrano.css" rel="stylesheet" />
+        <link href="./tyrano/libs/jquery-ui/jquery-ui.css" rel="stylesheet" />
 
-        <div class="aula-progresso">
-            <div class="progresso-barra" id="progresso"></div>
-        </div>
-        
-        <div class="conteudo-wrapper">
-            <div id="professor-container">
-                <!-- O balão de fala será posicionado aqui dentro -->
-                <div id="balao-container">
-                    <div id="balao">Olá! Bem-vindo ao curso de Word. Eu sou seu professor virtual e vou te guiar nessa jornada!</div>
-                </div>
-                <!-- O live2d-widget será inserido aqui pelo JavaScript -->
-            </div>
+        <!-- jQuery -->
+        <script src="./tyrano/libs/jquery-3.6.0.min.js"></script>
+        <script>
+            try {
+                window.jQuery = window.$ = require("./tyrano/libs/jquery-3.6.0.min.js");
+            } catch (e) {}
             
-            <div class="content-area">
-                <img id="exemplo" src="250.jpg" alt="Exemplo de Word">
+            try{
                 
-                <div id="navegacao">
-                    <button id="anterior" class="nav-btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
-                        </svg>
-                        Anterior
-                    </button>
-                    <button id="proximo" class="nav-btn">
-                        Próximo
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
-                        </svg>
-                    </button>
-                </div>
-            </div>
+                if(window.studio_api){
+                    //Win Macなど パッケージング時 
+                    window.studio_api = window.studio_api;
+                    window.process = window.studio_api.ipcRenderer.sendSync("getProcess");
+                }else if (window.opener.window.studio_api) {
+                    //プレビューのとき
+                    window.studio_api = window.opener.window.studio_api;
+                    window.process = window.opener.window.studio_api.ipcRenderer.sendSync("getProcess");
+                }
+                
+            }catch(e){
+            
+            }
+
+        </script>
+
+        <!-- jQuery Plugins -->
+        <script src="./tyrano/libs/jquery-migrate-1.4.1.js"></script>
+        <script src="./tyrano/libs/jquery-ui/jquery-ui.min.js"></script>
+        <script src="./tyrano/libs/jquery.a3d.js"></script>
+        <script src="./tyrano/libs/jsrender.min.js"></script>
+
+        <!-- 廃止予定 alertify.js -->
+        <link href="./tyrano/libs/alertify/alertify.core.css" rel="stylesheet" />
+        <link href="./tyrano/libs/alertify/alertify.default.css" rel="stylesheet" />
+        <script src="./tyrano/libs/alertify/alertify.min.js"></script>
+
+        <!-- remodal -->
+        <link href="./tyrano/libs/remodal/remodal.css" rel="stylesheet" />
+        <link href="./tyrano/libs/remodal/remodal-default-theme.css" rel="stylesheet" />
+        <script src="./tyrano/libs/remodal/remodal.js"></script>
+
+        <!-- html2canvas -->
+        <script src="./tyrano/libs/html2canvas.js"></script>
+
+        <!-- KeyConfig.js -->
+        <script src="./data/system/KeyConfig.js"></script>
+
+        <!-- tyrano -->
+        <script src="./tyrano/lang.js"></script>
+        <script src="./tyrano/libs.js"></script>
+        <script src="./tyrano/tyrano.js"></script>
+        <script src="./tyrano/tyrano.base.js"></script>
+        <script src="./tyrano/plugins/kag/kag.js"></script>
+        <script src="./tyrano/plugins/kag/kag.event.js"></script>
+        <script src="./tyrano/plugins/kag/kag.key_mouse.js"></script>
+        <script src="./tyrano/plugins/kag/kag.layer.js"></script>
+        <script src="./tyrano/plugins/kag/kag.menu.js"></script>
+        <script src="./tyrano/plugins/kag/kag.parser.js"></script>
+        <script src="./tyrano/plugins/kag/kag.rider.js"></script>
+        <script src="./tyrano/plugins/kag/kag.studio_v6.js"></script>
+        <script src="./tyrano/plugins/kag/kag.tag_audio.js"></script>
+        <script src="./tyrano/plugins/kag/kag.tag_camera.js"></script>
+        <script src="./tyrano/plugins/kag/kag.tag_ext.js"></script>
+        <script src="./tyrano/plugins/kag/kag.tag_system.js"></script>
+        <script src="./tyrano/plugins/kag/kag.tag_vchat.js"></script>
+        <script src="./tyrano/plugins/kag/kag.tag_ar.js"></script>
+        <script src="./tyrano/plugins/kag/kag.tag_three.js"></script>
+        <script src="./tyrano/plugins/kag/kag.tag.js"></script>
+
+        <!-- Others -->
+        <link href="./tyrano/libs/textillate/assets/animate.css" rel="stylesheet" />
+        <script src="./tyrano/libs/textillate/assets/jquery.lettering.js"></script>
+        <script src="./tyrano/libs/textillate/jquery.textillate.js"></script>
+        <script src="./tyrano/libs/jquery.touchSwipe.min.js"></script>
+        <script src="./tyrano/libs/howler.js"></script>
+        <script src="./tyrano/libs/jsQR.js"></script>
+        <script src="./tyrano/libs/anime.min.js"></script>
+        <script src="./tyrano/libs/lz-string.min.js"></script>
+        
+    </head>
+
+    <body onselectstart="return false" onContextmenu="return false" ontouchmove="event.preventDefault()">
+        <div id="tyrano_base" class="tyrano_base" style="overflow: hidden" unselectable="on" ondragstart="return false"></div>
+        <div id="vchat_base" class="vchat_base" style="overflow: hidden" unselectable="on" ondragstart="return false"></div>
+
+        <!--  First シナリオファイルに外部ファイルを利用したい場合は、こちらにシナリオファイルのURLを指定できます-->
+        <!--
+        <input type="hidden" id="first_scenario_file" value="http://test.com/tyrano/data/scenario/first.ks">
+        -->
+
+        <!-- コンフィグ調整をindex.htmlでもできる -->
+        <!--
+        <input type="hidden" tyrano="config" key="vchat" value="true" />
+        <input type="hidden" tyrano="config" key="vchatMenuVisible" value="true" />
+        -->
+
+        <!-- モーダル用 -->
+        <div class="remodal-bg"></div>
+        <div
+            class="remodal"
+            data-remodal-id="modal"
+            data-remodal-options="hashTracking:false,closeOnEscape:false,closeOnOutsideClick:false"
+        >
+            <h1 class="remodal_title"></h1>
+            <p class="remodal_txt"></p>
+            <br />
+            <button data-remodal-action="cancel" id="remodal-cancel" class="remodal-cancel">Cancel</button>
+            <button data-remodal-action="confirm" id="remodal-confirm" class="remodal-confirm">OK</button>
         </div>
-    </main>
-    
-    <script src="https://cdn.jsdelivr.net/npm/live2d-widget@3.1.4/lib/L2Dwidget.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/live2d-widget@3.1.4/lib/L2Dwidget.min.js"></script>
-    <!--<script src="https://cdn.jsdelivr.net/npm/live2d-widget-model@1.0.1/autoload.min.js"></script>-->
-    <script type="module">
-        import { default as Live2DWidgetModelShizuku } from 'https://cdn.jsdelivr.net/npm/live2d-widget-model-shizuku@1.0.5/+esm';
-      </script>
-    
-    
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            if (typeof L2Dwidget !== 'undefined') {
-                L2Dwidget.init({
-                    "display": {
-                        "position": "left",
-                        "width": 220,
-                        "height": 320,
-                        "hOffset": 0,
-                        "vOffset": 0
-                    },
-                    "mobile": {
-                        "show": true,
-                        "scale": 0.5,
-                        "motion": true
-                    },
-                    "react": {
-                        "opacityDefault": 1,
-                        "opacityOnHover": 1
-                    },
-                    "dialog": {
-                        "enable": false
-                    }
-                });
-    
-                // Configuração para o widget ficar fixado no canto inferior
-                setTimeout(function() {
-                    const widgetCanvas = document.querySelector('#live2d-widget canvas');
-                    if (widgetCanvas) {
-                        const widgetContainer = widgetCanvas.parentElement;
-                        if (widgetContainer) {
-                            widgetContainer.style.position = 'fixed';
-                            widgetContainer.style.bottom = '0';
-                            widgetContainer.style.left = '0';
-                            widgetContainer.style.zIndex = '5';
-                            widgetContainer.style.width = '220px';
-                            widgetContainer.style.height = '320px';
-                        }
-                    }
-                }, 1000);
-    
-                console.log("Live2D widget inicializado com sucesso");
-            } else {
-                console.error("A biblioteca Live2D não foi carregada corretamente");
-            }
-        });
-    
-        function mostrarFallback() {
-            const professorContainer = document.getElementById('professor-container');
-            const fallbackImg = document.createElement('img');
-            fallbackImg.src = "/api/placeholder/160/240";
-            fallbackImg.alt = "Professor virtual";
-            fallbackImg.style.cssText = "width: 160px; height: 240px; object-fit: contain; position: fixed; bottom: 0; left: 0;";
-            professorContainer.appendChild(fallbackImg);
-        }
-    
-        const falas = [
-            "Olá! Bem-vindo ao curso de Word. Eu sou a Koharu e serei sua guia nessa jornada!!!",
-            "Este é o menu principal do Word. Aqui você encontra todas as ferramentas organizadas em abas!",
-            "A guia Página Inicial contém os recursos Recortar e Colar, as opções de Fonte e Parágrafo e o que mais você precisa para adicionar e organizar slides.",
-            "Na aba Fontes podemos alerar Fonte, marcadores, tamanho da fonte, cor da fonte, espaçamento entre linha e parágrafo. Fonte, tamanho da fonte, cor da fonte, negrito, itálico e sublinhado.",
-            "A aba 'Layout' permite configurar margens, orientação da página e organizar seu conteúdo em colunas.",
-            "Agora que você conhece o básico, vamos praticar com alguns exercícios!"
-        ];
-    
-        const imagens = [
-            "Word_1500x1500.jpg",
-            "word1.png",
-            "word2.png",
-            "word3.png",
-            "/api/placeholder/640/400",
-            "/api/placeholder/640/400"
-        ];
-    
-        let index = 0;
-        const totalPassos = falas.length;
-    
-        const balao = document.getElementById("balao");
-        const exemplo = document.getElementById("exemplo");
-        const proximo = document.getElementById("proximo");
-        const anterior = document.getElementById("anterior");
-        const progresso = document.getElementById("progresso");
-    
-        function atualizarProgresso() {
-            const porcentagem = ((index + 1) / totalPassos) * 100;
-            progresso.style.width = `${porcentagem}%`;
-        }
-    
-        function atualizarConteudo() {
-            balao.innerText = falas[index];
-            exemplo.src = imagens[index];
-            atualizarProgresso();
-    
-            if (index === 0) {
-                anterior.style.visibility = "hidden";
-            } else {
-                anterior.style.visibility = "visible";
-            }
-    
-            if (index === totalPassos - 1) {
-                proximo.innerHTML = 'Finalizar <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/></svg>';
-            } else {
-                proximo.innerHTML = 'Próximo <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/></svg>';
-            }
-        }
-    
-        // Função para que o modelo leia o texto do balão usando Cloud Text-to-Speech
-async function falar(texto) {
-    try {
-        const resposta = await fetch("http://localhost:3000/sintetizar", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ texto: texto })
-        });
-
-        if (!resposta.ok) {
-            throw new Error("Erro ao sintetizar áudio");
-        }
-
-        const audioBlob = await resposta.blob();
-        const audioUrl = URL.createObjectURL(audioBlob);
-        const audio = new Audio(audioUrl);
-
-        // Live2D: animação de boca durante o áudio
-        audio.onplay = () => {
-            if (typeof L2Dwidget !== 'undefined') {
-                L2Dwidget.setParam("mouthOpen", 0.8);
-            }
-        };
-
-        audio.onended = () => {
-            if (typeof L2Dwidget !== 'undefined') {
-                L2Dwidget.setParam("mouthOpen", 0);
-            }
-        };
-
-        audio.play();
-    } catch (erro) {
-        console.error("Erro ao falar:", erro);
-    }
-}
-
-    
-        // Inicia o conteúdo com a primeira fala
-        atualizarConteudo();
-        falar(falas[index]);
-
-    
-        // Avançar para o próximo conteúdo
-        proximo.addEventListener("click", () => {
-            if (index < totalPassos - 1) {
-                index++;
-                atualizarConteudo();
-                falar(falas[index]);
-            } else {
-                // Finalizar ação
-                showMessage("Fim do conteúdo.");
-            }
-        });
-    
-        // Voltar ao conteúdo anterior
-        anterior.addEventListener("click", () => {
-            if (index > 0) {
-                index--;
-                atualizarConteudo();
-                falar(falas[index]);
-            }
-        });
-    
-    </script>
-    
-    
-
-
-    
-    
-</body>
+        
+        
+        
+        
+    </body>
 </html>

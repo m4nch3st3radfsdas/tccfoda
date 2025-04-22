@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Batalha Pokémon - Word Básico</title>
+  <link rel="stylesheet" href="pokemon.css">
+</head>
+<body>
+  <div class="game-container">
+    <!-- Botões de controle -->
+    <button class="music-control">🔈 Música</button>
+    <button class="sound-control">🔊 Efeitos</button>
+
+    <!-- Elementos de áudio -->
+    <audio id="battle-music" loop>
+      <source src="battle.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="hit-sound" src="hit.mp3"></audio>
+    <audio id="victory-sound" preload="auto">
+      <source src="victory.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="defeat-sound" preload="auto">
+      <source src="defeat.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Battlefield elements -->
+    <div class="battlefield">
+      <div class="battle-platform platform-opponent">
+        <div class="grass-patch grass-opponent"></div>
+      </div>
+      <div class="battle-platform platform-player">
+        <div class="grass-patch grass-player"></div>
+      </div>
+    </div>
+    
+    <!-- Pokémon sprites -->
+    <img class="pokemon-sprite opponent-pokemon" src="http://img.pokemondb.net/sprites/black-white/anim/normal/charizard.gif" alt="Regirock">
+    <img class="pokemon-sprite player-pokemon" src="http://bit.ly/blastoisegif" alt="Treecko">
+    
+    <!-- HP Boxes -->
+    <div class="hp-box opponent-hp">
+      CHARIZARD  <span class="level">  38NV</span>
+      <div class="hp-bar-container">
+        <div class="hp-bar" id="opponent-hp-bar" style="width: 100%;"></div>
+      </div>
+    </div>
+    
+    <div class="hp-box player-hp">
+      BLASTOISE  <span class="level">  39NV</span>
+      <div class="hp-bar-container">
+        <div class="hp-bar" id="player-hp-bar" style="width: 100%;"></div>
+      </div>
+    </div>
+    
+    <!-- Dialog Box -->
+    <div class="dialog-box">
+      <div class="dialog-text">Um CHARIZARD selvagem apareceu! O que BLASTOISE vai fazer?</div>
+      <div class="actions">
+        <button id="fight-btn">LUTAR</button>
+        <button id="bag-btn">MOCHILA</button>
+        <button id="pokemon-btn">POKÉMON</button>
+        <button id="run-btn">FUGIR</button>
+      </div>
+    </div>
+    
+    <!-- Battle effects -->
+    <div class="battle-effect" id="battle-effect"></div>
+    <div class="attack-effect" id="attack-effect"></div>
+    
+    <!-- Question Menu -->
+    <div class="question-menu" id="question-menu">
+      <div class="question-text" id="question-text"></div>
+      <input type="text" class="answer-input" id="answer-input" placeholder="Sua resposta...">
+      <button class="submit-btn" id="submit-answer">ENVIAR</button>
+    </div>
+    
+    <!-- Victory/Defeat Screens -->
+    <div class="victory-screen" id="victory-screen">
+      <div class="victory-message">VITÓRIA!<br>Você derrotou CHARIZARD!</div>
+      <button class="restart-btn" id="restart-btn">JOGAR NOVAMENTE</button>
+    </div>
+    
+    <div class="defeat-screen" id="defeat-screen">
+      <div class="defeat-message">DERROTA!<br>BLASTOISE desmaiou!</div>
+      <button class="restart-btn" id="restart-btn-2">TENTAR NOVAMENTE</button>
+    </div>
+  </div>
+
+  <script src="pokemon.js"></script>
+</body>
+</html>

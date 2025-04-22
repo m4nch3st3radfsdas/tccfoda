@@ -1,0 +1,403 @@
+:root {
+    /* Cores atualizadas para tema gamer/anime */
+    --primary: #FF2D75; /* Rosa vibrante */
+    --secondary: #00F0FF; /* Ciano */
+    --tertiary: #FFAC0C; /* Laranja amarelado */
+    --light: #0A0A14; /* Fundo escuro */
+    --dark: #FFFFFF; /* Texto branco */
+    --success: #00FF88; /* Verde neon */
+    --danger: #FF375F; /* Vermelho vibrante */
+    --gray: #8A8A9E; /* Cinza para textos secundários */
+    --neon-purple: #C724B1;
+    --neon-blue: #24C5C7;
+    
+    /* Efeitos de brilho */
+    --glow: 0 0 10px rgba(0, 240, 255, 0.7);
+    --text-glow: 0 0 8px rgba(255, 45, 117, 0.8);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Rajdhani', 'Oxanium', 'Segoe UI', sans-serif;
+}
+
+body {
+    background-color: var(--light);
+    color: var(--dark);
+    line-height: 1.6;
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(255, 45, 117, 0.1) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(0, 240, 255, 0.1) 0%, transparent 20%);
+    padding: 20px;
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1A1A2E;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary);
+}
+
+#logo {
+    height: 90px; /* Altura fixa menor */
+    width: 90px; /* Largura fixa para manter proporção */
+    object-fit: contain; /* Garante que a imagem inteira será visível */
+    border-radius: 50%;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    filter: drop-shadow(var(--glow));
+    margin: 0; /* Remove margens extras */
+    padding: 0; /* Remove paddings extras */
+    right:0;
+}
+
+#logo {
+    transition: transform 0.3s ease, filter 0.3s ease;
+    border-radius: 50%;
+    filter: drop-shadow(var(--glow));
+}
+
+#logo:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 15px var(--primary));
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    background-color: rgba(10, 10, 20, 0.9);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--secondary);
+}
+
+h1 {
+    color: var(--dark);
+    margin-bottom: 10px;
+    text-shadow: var(--text-glow);
+    font-family: 'Oxanium', sans-serif;
+    letter-spacing: 1px;
+}
+
+.nivel-section {
+    margin-bottom: 40px;
+    background: rgba(26, 26, 46, 0.8);
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nivel-header {
+    color: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-family: 'Oxanium', sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.nivel-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+}
+
+.nivel-basico .nivel-header {
+    background: linear-gradient(135deg, var(--success), #00FF88);
+}
+
+.nivel-intermediario .nivel-header {
+    background: linear-gradient(135deg, var(--tertiary), #FFAC0C);
+}
+
+.nivel-avancado .nivel-header {
+    background: linear-gradient(135deg, var(--danger), #FF375F);
+}
+
+.curso {
+    background: rgba(26, 26, 46, 0.6);
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s;
+}
+
+.curso:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    border-color: var(--primary);
+}
+
+.curso-header {
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.05);
+    transition: all 0.3s;
+}
+
+.curso-header:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.curso-titulo {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--dark);
+    font-family: 'Rajdhani', sans-serif;
+}
+
+.curso-btn {
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.curso-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    z-index: -1;
+    transition: 0.3s;
+    opacity: 0.9;
+}
+
+.curso-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.curso-btn:hover::before {
+    opacity: 1;
+}
+
+.nivel-basico .curso-btn::before {
+    background: linear-gradient(45deg, var(--success), #00FF88);
+}
+
+.nivel-intermediario .curso-btn::before {
+    background: linear-gradient(45deg, var(--tertiary), #FFAC0C);
+}
+
+.nivel-avancado .curso-btn::before {
+    background: linear-gradient(45deg, var(--danger), #FF375F);
+}
+
+.curso-conteudo {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    padding: 0 20px;
+    background: rgba(10, 10, 20, 0.5);
+}
+
+.curso-conteudo.ativo {
+    max-height: 500px;
+    padding: 20px;
+}
+
+.curso-descricao {
+    margin-bottom: 15px;
+    line-height: 1.6;
+    color: var(--gray);
+}
+
+.modulos-lista {
+    list-style: none;
+    margin-top: 10px;
+}
+
+.modulos-lista li {
+    margin-bottom: 8px;
+    padding-left: 20px;
+    position: relative;
+    color: var(--gray);
+}
+
+.modulos-lista li::before {
+    content: '▹';
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+}
+
+.duracao, .professor {
+    margin-top: 15px;
+    color: var(--gray);
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+
+.duracao::before {
+    content: '⏱️';
+    margin-right: 5px;
+}
+
+.professor::before {
+    content: '👨‍🏫';
+    margin-right: 5px;
+}
+
+.botao-gamer2 {
+    background: 
+        linear-gradient(rgba(10,10,20,0.7), rgba(10,10,20,0.7)),
+        url('https://miro.medium.com/v2/resize:fit:782/1*0-e13muUbKZoGTilGg_b6Q.jpeg');
+    background-size: cover;
+    background-position: center;
+    color: var(--secondary);
+    padding: 12px 25px;
+    border: 2px solid var(--primary);
+    border-radius: 30px;
+    cursor: pointer;
+    font-family: 'Oxanium', sans-serif;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(255,45,117,0.3);
+}
+
+.botao-gamer2:hover {
+    color: white;
+    border-color: var(--secondary);
+    box-shadow: 0 0 20px var(--primary);
+    transform: translateY(-3px);
+}
+
+.botao-gamer2::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, 
+        transparent, 
+        rgba(255,45,117,0.2), 
+        transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s;
+}
+
+.botao-gamer2:hover::after {
+    transform: translateX(100%);
+}
+
+.botao-gamer {
+    background: 
+        linear-gradient(rgba(10,10,20,0.7), rgba(10,10,20,0.7)),
+        url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_NC5WohO-V14XcVoQaDvc81Otnj9ulGWHJA&s');
+    background-size: cover;
+    background-position: center;
+    color: var(--secondary);
+    padding: 12px 25px;
+    border: 2px solid var(--primary);
+    border-radius: 30px;
+    cursor: pointer;
+    font-family: 'Oxanium', sans-serif;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(255,45,117,0.3);
+}
+
+.botao-gamer:hover {
+    color: white;
+    border-color: var(--secondary);
+    box-shadow: 0 0 20px var(--primary);
+    transform: translateY(-3px);
+}
+
+.botao-gamer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, 
+        transparent, 
+        rgba(255,45,117,0.2), 
+        transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s;
+}
+
+.botao-gamer:hover::after {
+    transform: translateX(100%);
+}
+
+/* Efeitos de animação */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.nivel-header {
+    animation: pulse 5s infinite;
+}
+
+/* Responsividade */
+@media screen and (max-width: 768px) {
+    .curso-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .curso-btn {
+        margin-top: 10px;
+        align-self: flex-end;
+    }
+}

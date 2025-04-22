@@ -363,7 +363,7 @@ nav {
 }
 
 .firststeps-bg {
-    background: linear-gradient(135deg, #5E9FFF, #00F0FF);
+    background: linear-gradient(135deg, blue, #00F0FF);
 }
 
 .excel-bg {
@@ -745,16 +745,284 @@ footer::before {
 .word-progress {
     background: linear-gradient(90deg, var(--word), #5E9FFF);
 }
+:root {
+    /* Cores do tema gamer/anime */
+    --primary: #FF2D75; /* Rosa vibrante */
+    --secondary: #00F0FF; /* Ciano */
+    --tertiary: #FFAC0C; /* Laranja amarelado */
+    --light: #0A0A14; /* Fundo escuro */
+    --dark: #FFFFFF; /* Texto branco */
+    --success: #00FF88; /* Verde neon */
+    --danger: #FF375F; /* Vermelho vibrante */
+    --gray: #8A8A9E; /* Cinza para textos secundários */
+    --neon-purple: #C724B1;
+    --neon-blue: #24C5C7;
+    
+    /* Efeitos de brilho */
+    --glow: 0 0 10px rgba(0, 240, 255, 0.7);
+    --text-glow: 0 0 8px rgba(255, 45, 117, 0.8);
+}
+
+.planos-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch;
+    padding: 40px 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    gap: 30px;
+    flex-wrap: wrap;
+    background: rgba(10, 10, 20, 0.5);
+    border-radius: 12px;
+    border: 1px solid var(--primary);
+    box-shadow: var(--glow);
+}
+
+.plano {
+    background: rgba(26, 26, 46, 0.8);
+    border: 1px solid var(--primary);
+    border-radius: 12px;
+    padding: 30px;
+    text-align: center;
+    width: 350px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.plano::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+}
+
+.plano:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+    border-color: var(--secondary);
+}
+
+.plano-team {
+    border-color: var(--tertiary);
+}
+
+.plano-team::before {
+    background: linear-gradient(90deg, var(--tertiary), #FFD700);
+}
+
+.plano-enterprise {
+    border-color: var(--secondary);
+}
+
+.plano-enterprise::before {
+    background: linear-gradient(90deg, var(--secondary), var(--neon-blue));
+}
+
+.plano-header h3 {
+    margin: 0 0 10px 0;
+    color: var(--dark);
+    font-family: 'Oxanium', sans-serif;
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+    text-shadow: var(--text-glow);
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.plano-header .tipo {
+    color: var(--gray);
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.preco {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--success);
+    margin: 20px 0;
+    font-family: 'Oxanium', sans-serif;
+    text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+}
+
+.info-preco {
+    font-size: 1rem;
+    color: var(--gray);
+}
+
+.plano ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    margin: 25px 0;
+}
+
+.plano ul li {
+    margin-bottom: 12px;
+    color: var(--dark);
+    padding-left: 25px;
+    position: relative;
+    font-size: 1.1rem;
+}
+
+.plano ul li::before {
+    content: '▹';
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-size: 1.2rem;
+}
+
+.botao-experimentar {
+    background: linear-gradient(45deg, var(--primary), var(--neon-purple));
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    font-family: 'Oxanium', sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: 0 5px 15px rgba(255, 45, 117, 0.4);
+    font-size: 1.1rem;
+    margin-top: 20px;
+}
+
+.botao-experimentar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, var(--neon-purple), var(--primary));
+    z-index: -1;
+    transition: opacity 0.3s;
+    opacity: 0;
+}
+
+.botao-experimentar:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 45, 117, 0.6);
+}
+
+.botao-experimentar:hover::before {
+    opacity: 1;
+    animation: btnGlow 1.5s infinite;
+}
+
+@keyframes btnGlow {
+    0% { filter: brightness(100%); }
+    50% { filter: brightness(120%); }
+    100% { filter: brightness(100%); }
+}
 
 /* Responsividade */
-@media screen and (max-width: 992px) {
-    .hero h1 {
-        font-size: 48px;
+@media screen and (max-width: 1200px) {
+    .planos-container {
+        justify-content: center;
     }
-    
-    .section-title {
-        font-size: 36px;
+}
+
+@media screen and (max-width: 768px) {
+    .plano {
+        width: 100%;
+        max-width: 400px;
     }
+}
+
+/* Correção para o HTML com tags não fechadas */
+.plano > div {
+    margin-bottom: 20px;
+}
+
+.planos-intro {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 0 20px;
+    max-width: 1200px;
+    margin: 0 auto 50px;
+}
+
+.intro-title {
+    font-family: 'Oxanium', sans-serif;
+    font-size: 2.5rem;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: var(--text-glow);
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    animation: textGlow 2s infinite alternate;
+}
+
+.intro-subtitle {
+    color: var(--gray);
+    font-size: 1.3rem;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+@keyframes textGlow {
+    0% { text-shadow: 0 0 10px var(--primary); }
+    100% { text-shadow: 0 0 20px var(--secondary); }
+}
+
+.pricing-section {
+    padding: 60px 20px;
+    background: radial-gradient(circle at top left, rgba(255,45,117,0.1) 0%, transparent 30%);
+}
+
+.planos-cta {
+    text-align: center;
+    margin-top: 40px;
+    color: var(--gray);
+    font-size: 1.1rem;
+}
+
+.neon-link {
+    color: var(--secondary);
+    text-decoration: none;
+    transition: all 0.3s;
+    position: relative;
+}
+
+.neon-link:hover {
+    color: var(--primary);
+    text-shadow: var(--text-glow);
+}
+
+.neon-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--secondary);
+    transition: all 0.3s;
+}
+
+.neon-link:hover::after {
+    background: var(--primary);
+    box-shadow: var(--glow);
 }
 
 @media screen and (max-width: 768px) {

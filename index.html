@@ -7,6 +7,10 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;600;700&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+    <link rel="shortcut icon" href="arquivos\Logo_Tcc-removebg-preview (1).png" type="image/x-icon" sizes="48x48" />
+
+
+    
 </head>
 
 <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
@@ -24,8 +28,8 @@
                     <li><a href="#inicio">Início</a></li>
                     <li><a href="#cursos">Cursos</a></li>
                     <li><a href="#recursos">Recursos</a></li>
+                    <li><a href="#planos">Planos</a></li>
                     <li><a href="#perfil">Perfil</a></li>
-                    <li><a href="#suporte">Suporte</a></li>
                     <li><a href="#sobre">Sobre</a></li>
                 </ul>
                 <button class="btn btn-primary" id="btnEntrar">Login / Registro</button>
@@ -35,11 +39,11 @@
 
     <section class="hero" id="inicio">
         <div class="container">
-            <h1>Aprenda PowerPoint, Excel e Word</h1>
+            <h1>Aprenda PowerPoint, Excel e Word com Visual Novels</h1>
             <p>Do básico ao avançado, com aulas passo a passo para iniciantes. Acompanhe seu progresso e obtenha certificados ao concluir os módulos!</p>
             <div class="hero-buttons">
-                <button class="btn btn-primary">Começar Agora</button>
-                <button class="btn btn-secondary">Explorar Cursos</button>
+                <button class="btn btn-primary" id="comecar">Começar Agora</button>
+                <button class="btn btn-secondary" <a href="#cursos">Explorar Cursos</a></button>
             </div>
         </div>
 
@@ -159,6 +163,59 @@
         </div>
     </section>
 
+    <section class="pricing-section">
+        <div class="planos-intro">
+            <h2 class="intro-title">DESCUBRA SEU FINAL IDEAL</h2>
+            <p class="intro-subtitle" style="font-size:30px">Cada plano é um novo capítulo na sua jornada de aprendizad</p>
+        </div>
+
+    <div class="planos-container" id="planos">
+        <div class="plano">
+            <div class="plano-header">
+                <h3>Plano Inicial</h3>
+                <div class="tipo">Para iniciantes</div>
+            </div>
+            <div class="preco">R$ 29<span class="info-preco">/mês</span></div>
+            <ul>
+                <li>5 usuários incluídos</li>
+                <li>Todos os módulos básicos liberados</li>
+                <li>Capítulo Básico da Visual Novel liberada para todos os cursos</li>
+            </ul>
+            <a href="#" class="botao-experimentar">Experimentar</a>
+        </div>
+        
+        <div class="plano plano-team">
+            <div class="plano-header">
+                <h3>Plano Intermediário</h3>
+                <div class="tipo">Para equipes</div>
+            </div>
+            <div class="preco">R$ 59<span class="info-preco">/mês</span></div>
+            <ul>
+                <li>10 usuários incluídos</li>
+                <li>Todos os módulos intermediários liberados</li>
+                <li>Capítulos Intermediários da Visual Novel</li>
+                <li>Suporte prioritário</li>
+            </ul>
+            <a href="#" class="botao-experimentar">Experimentar</a>
+        </div>
+        
+        <div class="plano plano-enterprise">
+            <div class="plano-header">
+                <h3>Plano Avançado</h3>
+                <div class="tipo">Para empresas</div>
+            </div>
+            <div class="preco">R$ 99<span class="info-preco">/mês</span></div>
+            <ul>
+                <li>Usuários ilimitados</li>
+                <li>Todos os módulos liberados</li>
+                <li>Visual Novel completa</li>
+                <li>Suporte 24/7</li>
+                <li>Conteúdo exclusivo</li>
+            </ul>
+            <a href="#" class="botao-experimentar">Experimentar</a>
+        </div>
+    </div>
+
     <section class="profile-preview" id="perfil">
         <div class="container">
             <div class="profile-container">
@@ -220,7 +277,7 @@
                     <ul class="footer-links">
                         <li><a href="#">PowerPoint</a></li>
                         <li><a href="#">Excel</a></li>
-                        <li><a href="#">Word</a></li>
+                        <li><a href="niveis\word\NVword.html">Word</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">

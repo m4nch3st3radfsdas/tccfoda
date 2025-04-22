@@ -30,7 +30,7 @@
 
 
  document.getElementById("btnEntrar").addEventListener("click", function() {
-        window.location.href = "PerfilGoogleapifunc/index.html"; // Substitua pelo link da página desejada
+        window.location.href = "login/login.html"; // Substitua pelo link da página desejada
     });
 
     document.getElementById("btnRegistro").addEventListener("click", function() {
@@ -43,8 +43,13 @@
     });
 
     document.getElementById("word").addEventListener("click", function() {
-        window.location.href = "sitetst/index.html"; // Substitua pelo link da página desejada
+        window.location.href = "niveis/word/NVword.html"; // Substitua pelo link da página desejada
     });
+
+    document.getElementById("comecar").addEventListener("click", function() {
+        window.location.href = "login/registro/registro.html"; // Substitua pelo link da página desejada
+    });
+
 
   
 

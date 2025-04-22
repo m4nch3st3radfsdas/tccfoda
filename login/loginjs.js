@@ -1,79 +1,106 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-app.js";
-import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-auth.js";
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  sendPasswordResetEmail
+} from "https://www.gstatic.com/firebasejs/11.5.0/firebase-auth.js";
+import {
+  getFirestore
+} from "https://www.gstatic.com/firebasejs/11.5.0/firebase-firestore.js";
 
 // Configuração do Firebase
 const firebaseConfig = {
-    apiKey: "AIzaSyBXoCvUiXhCLbX_bWqtvoNBnRDP0n7KfmA",
-    authDomain: "office-aprenda.firebaseapp.com",
-    projectId: "office-aprenda",
-    storageBucket: "office-aprenda.appspot.com",
-    messagingSenderId: "635788453275",
-    appId: "1:635788453275:web:e05efefedc4097b022ad3e",
-    measurementId: "G-XS339P2HLY"
+  apiKey: "AIzaSyBXoCvUiXhCLbX_bWqtvoNBnRDP0n7KfmA",
+  authDomain: "office-aprenda.firebaseapp.com",
+  projectId: "office-aprenda",
+  storageBucket: "office-aprenda.appspot.com",
+  messagingSenderId: "635788453275",
+  appId: "1:635788453275:web:e05efefedc4097b022ad3e",
+  measurementId: "G-XS339P2HLY"
 };
 
-// Inicializando o Firebase
+// Inicializando Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+const db = getFirestore(app);
 
-// Redirecionamento ao clicar no botão "Entrar"
-document.getElementById("btnEntrar").addEventListener("click", function () {
-    window.location.href = "login/perfil/perfil.html";
-});
+// Função de redefinir senha
+function redefinirSenha() {
+  const email = document.getElementById("email").value.trim();
 
-// Função para Login via Google
-function onGoogleSignIn(response) {
-    console.log("Login bem-sucedido!", response);
-    const credential = response.credential;
-    const decodedToken = parseJwt(credential);
-    console.log("Usuário:", decodedToken);
-    alert(`Bem-vindo, ${decodedToken.name}!`);
+  if (email === "") {
+    alert("Por favor, informe seu e-mail para redefinir a senha.");
+    return;
+  }
+
+  const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!regexEmail.test(email)) {
+    alert("Formato de e-mail inválido.");
+    return;
+  }
+
+  sendPasswordResetEmail(auth, email)
+    .then(() => {
+      alert("E-mail de redefinição de senha enviado. Verifique sua caixa de entrada.");
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      if (errorCode === 'auth/user-not-found') {
+        alert("Este e-mail não está cadastrado.");
+      } else {
+        console.error("Erro ao enviar e-mail de redefinição:", error.message);
+        alert("Erro: " + error.message);
+      }
+    });
 }
 
-// Login com Email e Senha
+// Login sem verificação de e-mail
 const loginWithEmail = async (email, password) => {
-    try {
-        const userCredential = await signInWithEmailAndPassword(auth, email, password);
-        console.log("Usuário logado:", userCredential.user);
-        alert("Login bem-sucedido!");
-        window.location.href = "perfil/perfil.html";
-    } catch (error) {
-        console.error("Erro no login:", error.message);
-        alert("Erro no login: " + error.message);
+  try {
+    const userCredential = await signInWithEmailAndPassword(auth, email, password);
+    const user = userCredential.user;
+
+    // Login bem-sucedido
+    console.log("Usuário logado com sucesso:", user);
+    alert("Login realizado com sucesso!");
+    window.location.href = "perfil/perfil.html"; // Redireciona para a página de perfil
+
+  } catch (error) {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+
+    if (errorCode === 'auth/user-not-found') {
+      alert("Este e-mail não está cadastrado.");
+    } else if (errorCode === 'auth/wrong-password') {
+      alert("Senha incorreta.");
+    } else if (errorCode === 'auth/invalid-email') {
+      alert("Formato de e-mail inválido.");
+    } else {
+      console.error("Erro no login:", errorMessage);
+      alert("Erro no login: " + errorMessage);
     }
+  }
 };
 
-// Registro de Novo Usuário
-function registerUser() {
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-
-    if (email === "" || password === "") {
-        alert("Por favor, preencha todos os campos.");
-        return;
-    }
-
-    createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            console.log("Usuário registrado com sucesso:", userCredential.user);
-            alert("Usuário registrado com sucesso!");
-            window.location.href = "perfil/perfil.html";
-        })
-        .catch((error) => {
-            console.error("Erro de registro:", error.message);
-            alert("Erro ao registrar: " + error.message);
-        });
-}
-
-// Captura evento de envio do formulário para login ou registro
+// Captura envio do formulário
 document.querySelector("form").addEventListener("submit", function (event) {
-    event.preventDefault();
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
+  event.preventDefault();
 
-    if (event.submitter.id === "btnRegistrar") {
-        registerUser();
-    } else {
-        loginWithEmail(email, password);
-    }
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value;
+
+  if (event.submitter.id === "btnRedefinir") {
+    redefinirSenha();
+  } else {
+    loginWithEmail(email, password);
+  }
 });
+
+window.onSignIn = function (response) {
+  console.log("Token de ID do Google:", response.credential);
+
+  // Aqui você pode fazer login com Firebase usando o token, se quiser:
+  // Exemplo:
+  // const credential = GoogleAuthProvider.credential(response.credential);
+  // signInWithCredential(auth, credential).then(...);
+};

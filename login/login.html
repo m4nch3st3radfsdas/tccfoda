@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Meu Site</title>
+    <title>Login</title>
 
     <!-- Script do Google para autenticação -->
     <script src="https://accounts.google.com/gsi/client" async defer></script>
@@ -10,8 +10,10 @@
     <!-- Link para o CSS -->
     <link rel="stylesheet" type="text/css" href="stylelogin.css" media="screen" />
 
+    <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+
     <!-- Script JS para ações do login (loginjs.js) -->
-    <script src="loginjs.js" defer></script>
+    <script type="module" src="loginjs.js" defer></script>
 </head>
 
 <body>
@@ -38,7 +40,7 @@
                         <input type="checkbox" class="form-check-input" id="remember">
                         <label for="remember">Lembrar-me</label>
                     </div>
-                    <a href="#" class="forgot-link">Esqueceu a senha?</a>
+                    <button type="button" class="btn" id="btnRedefinir">Esqueceu a senha?</a>
                 </div>
                 
                 <button type="submit" class="btn" id="btnEntrar">Entrar</button>
@@ -70,11 +72,34 @@
         </div>
     </div>
 
-    <!-- Adicionar os scripts do Firebase -->
-<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+    <script>
 
-<script src="loginjs.js"></script>
+
+window.onSignIn = async function (response) {
+  const credential = response.credential;
+
+  const { getAuth, signInWithCredential, GoogleAuthProvider } = await import("https://www.gstatic.com/firebasejs/11.5.0/firebase-auth.js");
+  const auth = getAuth();
+
+  const provider = new GoogleAuthProvider();
+  const googleCredential = GoogleAuthProvider.credential(credential);
+
+  try {
+    const result = await signInWithCredential(auth, googleCredential);
+    const user = result.user;
+
+    console.log("Login com Google bem-sucedido:", user);
+    alert("Login com Google realizado com sucesso!");
+    window.location.href = "/home.html"; // ou onde quiser direcionar
+
+  } catch (error) {
+    console.error("Erro ao logar com o Google:", error);
+    alert("Erro no login com Google: " + error.message);
+  }
+};
+
+
+    </script>
 
 
 </body>

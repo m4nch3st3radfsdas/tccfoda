@@ -1,47 +1,121 @@
+:root {
+    /* Cores do tema gamer/anime */
+    --primary: #FF2D75; /* Rosa vibrante */
+    --secondary: #00F0FF; /* Ciano */
+    --tertiary: #FFAC0C; /* Laranja amarelado */
+    --light: #0A0A14; /* Fundo escuro */
+    --dark: #FFFFFF; /* Texto branco */
+    --success: #00FF88; /* Verde neon */
+    --danger: #FF375F; /* Vermelho vibrante */
+    --gray: #8A8A9E; /* Cinza para textos secundários */
+    --neon-purple: #C724B1;
+    --neon-blue: #24C5C7;
+    
+    /* Efeitos de brilho */
+    --glow: 0 0 10px rgba(0, 240, 255, 0.7);
+    --text-glow: 0 0 8px rgba(255, 45, 117, 0.8);
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Rajdhani', 'Oxanium', 'Segoe UI', sans-serif;
 }
 
 body {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    height: 100vh;
+    background-color: var(--light);
+    color: var(--dark);
+    line-height: 1.6;
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(255, 45, 117, 0.1) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(0, 240, 255, 0.1) 0%, transparent 20%);
+    min-height: 100vh;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1A1A2E;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary);
 }
 
 .container {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-    width: 400px;
-    max-width: 90%;
+    width: 100%;
+    max-width: 500px;
+    background: rgba(26, 26, 46, 0.8);
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--primary);
+    backdrop-filter: blur(5px);
+    position: relative;
     overflow: hidden;
 }
 
+.container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: 
+        radial-gradient(circle, rgba(255,45,117,0.1) 0%, transparent 70%),
+        radial-gradient(circle, rgba(0,240,255,0.1) 0%, transparent 70%);
+    animation: rotate 20s linear infinite;
+    z-index: -1;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
 .header {
-    background-color: #f8f9fa;
-    padding: 30px 40px;
+    background: rgba(10, 10, 20, 0.6);
+    padding: 30px 20px;
     text-align: center;
-    border-bottom: 1px solid #e9ecef;
+    border-bottom: 3px solid var(--primary);
+    margin-bottom: 30px;
 }
 
 .header h1 {
-    font-size: 28px;
-    color: #333;
-    margin-bottom: 5px;
+    font-size: 2.5rem;
+    color: var(--dark);
+    text-shadow: var(--text-glow);
+    font-family: 'Oxanium', sans-serif;
+    letter-spacing: 2px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 10px;
 }
 
 .header p {
-    color: #6c757d;
-    font-size: 14px;
+    color: var(--gray);
+    font-size: 1rem;
+    letter-spacing: 0.5px;
 }
 
 .form-container {
-    padding: 30px 40px;
+    padding: 0;
 }
 
 .form-group {
@@ -51,103 +125,142 @@ body {
 
 .form-group label {
     display: block;
-    color: #495057;
-    margin-bottom: 8px;
-    font-weight: 500;
-    font-size: 14px;
+    color: var(--secondary);
+    margin-bottom: 10px;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
 }
 
 .form-control {
     width: 100%;
     padding: 15px;
-    font-size: 14px;
-    border: 1px solid #ced4da;
-    border-radius: 4px;
+    font-size: 1rem;
+    background: rgba(10, 10, 20, 0.7);
+    border: 2px solid var(--gray);
+    border-radius: 8px;
+    color: var(--dark);
     transition: all 0.3s;
 }
 
 .form-control:focus {
-    border-color: #4c6ef5;
-    outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(76, 110, 245, 0.25);
+    border-color: var(--primary);
+    outline: none;
+    box-shadow: 0 0 10px var(--primary);
+}
+
+.form-control::placeholder {
+    color: rgba(138, 138, 158, 0.7);
 }
 
 .btn {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(45deg, var(--primary), var(--neon-purple));
     color: white;
     border: none;
     padding: 15px;
-    margin-bottom: 15px;
     width: 100%;
-    font-size: 16px;
-    border-radius: 4px;
+    font-size: 1.1rem;
+    border-radius: 8px;
     cursor: pointer;
-    font-weight: 500;
-    letter-spacing: 0.5px;
+    font-weight: 700;
+    letter-spacing: 1px;
     transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    text-transform: uppercase;
+    box-shadow: 0 5px 15px rgba(255, 45, 117, 0.4);
+    margin-bottom: 20px;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, var(--neon-purple), var(--primary));
+    z-index: -1;
+    transition: opacity 0.3s;
+    opacity: 0;
 }
 
 .btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 45, 117, 0.6);
 }
 
-.btn:active {
-    transform: translateY(0);
+.btn:hover::before {
+    opacity: 1;
+    animation: btnGlow 1.5s infinite;
+}
+
+@keyframes btnGlow {
+    0% { filter: brightness(100%); }
+    50% { filter: brightness(120%); }
+    100% { filter: brightness(100%); }
 }
 
 .footer {
-    padding: 20px 40px;
+    padding: 20px 0 0;
     text-align: center;
-    color: #6c757d;
-    font-size: 14px;
-    border-top: 1px solid #e9ecef;
+    color: var(--gray);
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 20px;
 }
 
 .footer a {
-    color: #4c6ef5;
+    color: var(--secondary);
     text-decoration: none;
+    transition: all 0.3s;
 }
 
 .footer a:hover {
-    text-decoration: underline;
+    color: var(--primary);
+    text-shadow: var(--text-glow);
 }
 
 .social-login {
     display: flex;
     justify-content: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin: 25px 0;
+    gap: 15px;
 }
 
 .social-btn {
-    padding: 10px 15px;
-    border: 1px solid #ced4da;
-    border-radius: 4px;
-    background-color: white;
+    padding: 12px 20px;
+    border: 2px solid var(--primary);
+    border-radius: 8px;
+    background: rgba(10, 10, 20, 0.5);
     cursor: pointer;
-    margin: 0 10px;
     transition: all 0.3s;
     display: flex;
     align-items: center;
+    color: var(--dark);
+    font-weight: 600;
 }
 
 .social-btn:hover {
-    background-color: #f8f9fa;
-    transform: translateY(-2px);
+    background: rgba(255, 45, 117, 0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 45, 117, 0.3);
+    border-color: var(--secondary);
 }
 
 .social-btn img {
     width: 20px;
     height: 20px;
     margin-right: 10px;
+    filter: drop-shadow(0 0 3px var(--primary));
 }
 
 .remember-forgot {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 .form-check {
@@ -156,45 +269,87 @@ body {
 }
 
 .form-check-input {
-    margin-right: 8px;
+    margin-right: 10px;
+    accent-color: var(--primary);
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
 }
 
-.forgot-link {
-    color: #4c6ef5;
+.form-check-label {
+    color: var(--gray);
+    cursor: pointer;
+}
+
+#btnRedefinir {
+    color: var(--secondary);
     text-decoration: none;
-    font-size: 14px;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+    width:200px;
 }
 
-.forgot-link:hover {
-    text-decoration: underline;
+#btnRedefinir:hover {
+    color: white;
+    text-shadow: var(--text-glow);
 }
 
+.g_id_signin {
+    width: 100%;
+    transition: all 0.3s;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.g_id_signin:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 240, 255, 0.4);
+}
+
+/* Responsividade */
 @media (max-width: 576px) {
     .container {
+        padding: 30px 20px;
         max-width: 100%;
-        border-radius: 0;
+        border-radius: 8px;
     }
     
-    .form-container {
-        padding: 20px;
+    .header h1 {
+        font-size: 2rem;
     }
     
-    .header {
-        padding: 20px;
+    .social-login {
+        flex-direction: column;
     }
     
-    .footer {
-        padding: 20px;
+    .social-btn {
+        justify-content: center;
     }
 }
 
-/* Estiliza o botão do Google Sign-In */
-.g_id_signin {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* Efeitos extras */
+.form-group::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: width 0.3s;
 }
 
-/* Efeito de hover */
-.g_id_signin:hover {
-    transform: scale(1.05); /* Aumenta um pouco o botão */
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Adiciona sombreamento */
+.form-group:focus-within::after {
+    width: 100%;
+}
+
+/* Animação pulsante para o header */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+.header {
+    animation: pulse 6s infinite;
 }

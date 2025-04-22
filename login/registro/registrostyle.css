@@ -1,158 +1,235 @@
-/* Reset de algumas configurações padrão */
+:root {
+    /* Cores do tema gamer/anime */
+    --primary: #FF2D75; /* Rosa vibrante */
+    --secondary: #00F0FF; /* Ciano */
+    --tertiary: #FFAC0C; /* Laranja amarelado */
+    --light: #0A0A14; /* Fundo escuro */
+    --dark: #FFFFFF; /* Texto branco */
+    --success: #00FF88; /* Verde neon */
+    --danger: #FF375F; /* Vermelho vibrante */
+    --gray: #8A8A9E; /* Cinza para textos secundários */
+    --neon-purple: #C724B1;
+    --neon-blue: #24C5C7;
+    
+    /* Efeitos de brilho */
+    --glow: 0 0 10px rgba(0, 240, 255, 0.7);
+    --text-glow: 0 0 8px rgba(255, 45, 117, 0.8);
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Rajdhani', 'Oxanium', 'Segoe UI', sans-serif;
 }
 
 body {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-color: var(--light);
+    color: var(--dark);
+    line-height: 1.6;
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(255, 45, 117, 0.1) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(0, 240, 255, 0.1) 0%, transparent 20%);
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    padding: 20px;
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1A1A2E;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary);
 }
 
 .container {
     width: 100%;
-    max-width: 400px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    padding: 30px;
-    margin: 20px;
+    max-width: 500px;
+    background: rgba(26, 26, 46, 0.8);
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--primary);
+    backdrop-filter: blur(5px);
+    position: relative;
+    overflow: hidden;
 }
 
-.header {
+.container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: 
+        radial-gradient(circle, rgba(255,45,117,0.1) 0%, transparent 70%),
+        radial-gradient(circle, rgba(0,240,255,0.1) 0%, transparent 70%);
+    animation: rotate 20s linear infinite;
+    z-index: -1;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+h1 {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    color: var(--dark);
+    text-shadow: var(--text-glow);
+    font-family: 'Oxanium', sans-serif;
+    letter-spacing: 2px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
-.header h1 {
-    font-size: 2rem;
-    color: #333;
-}
-
-.header p {
-    color: #666;
-    font-size: 1rem;
-}
-
-.form-container {
-    width: 100%;
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
 }
 
 .form-group {
-    margin-bottom: 15px;
+    position: relative;
 }
 
 label {
     display: block;
-    font-weight: bold;
-    margin-bottom: 8px;
-    color: #333;
+    margin-bottom: 10px;
+    color: var(--secondary);
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
 }
 
-input[type="email"],
-input[type="password"] {
+.form-control {
     width: 100%;
-    padding: 10px;
-    margin-top: 6px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    padding: 15px;
+    background: rgba(10, 10, 20, 0.7);
+    border: 2px solid var(--gray);
+    border-radius: 8px;
+    color: var(--dark);
     font-size: 1rem;
+    transition: all 0.3s;
 }
 
-input[type="email"]:focus,
-input[type="password"]:focus {
-    border-color: #007bff;
+.form-control:focus {
     outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 10px var(--primary);
 }
 
-.remember-forgot {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
+.form-control::placeholder {
+    color: rgba(138, 138, 158, 0.7);
 }
 
-.remember-forgot .form-check {
-    display: flex;
-    align-items: center;
-}
-
-.remember-forgot .form-check input {
-    margin-right: 5px;
-}
-
-.forgot-link {
-    color: #007bff;
-    text-decoration: none;
-    font-size: 0.875rem;
-}
-
-.forgot-link:hover {
-    text-decoration: underline;
-}
-
-button[type="submit"] {
+.btn {
     width: 100%;
-    padding: 12px;
-    background-color: #007bff;
+    padding: 15px;
+    background: linear-gradient(45deg, var(--primary), var(--neon-purple));
     color: white;
-    font-size: 1rem;
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    text-transform: uppercase;
+    box-shadow: 0 5px 15px rgba(255, 45, 117, 0.4);
 }
 
-button[type="submit"]:hover {
-    background-color: #0056b3;
-}
-
-.footer {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.footer p {
-    font-size: 0.875rem;
-}
-
-.footer p a {
-    color: #007bff;
-    text-decoration: none;
-}
-
-.footer p a:hover {
-    text-decoration: underline;
-}
-
-/* Estilos para o Google Sign-In */
-.g_id_signin {
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    margin-top: 20px;
-    text-align: center;
+    height: 100%;
+    background: linear-gradient(45deg, var(--neon-purple), var(--primary));
+    z-index: -1;
+    transition: opacity 0.3s;
+    opacity: 0;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 45, 117, 0.6);
+}
+
+.btn:hover::before {
+    opacity: 1;
+    animation: btnGlow 1.5s infinite;
+}
+
+@keyframes btnGlow {
+    0% { filter: brightness(100%); }
+    50% { filter: brightness(120%); }
+    100% { filter: brightness(100%); }
+}
+
+/* Efeitos extras */
+.form-group::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: width 0.3s;
+}
+
+.form-group:focus-within::after {
+    width: 100%;
 }
 
 /* Responsividade */
-@media (max-width: 480px) {
+@media screen and (max-width: 600px) {
     .container {
-        padding: 20px;
+        padding: 30px 20px;
     }
-
-    .header h1 {
-        font-size: 1.5rem;
+    
+    h1 {
+        font-size: 2rem;
     }
-
-    .form-group input {
-        font-size: 0.9rem;
+    
+    .form-control {
+        padding: 12px;
     }
-
-    button[type="submit"] {
-        padding: 10px;
+    
+    .btn {
+        padding: 12px;
     }
 }
 
+@media screen and (max-width: 400px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    label {
+        font-size: 1rem;
+    }
+}
